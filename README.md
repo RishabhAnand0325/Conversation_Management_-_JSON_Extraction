@@ -18,9 +18,9 @@ The script is built to perform two main tasks:
 
 - Customizable Truncation: Includes helper functions to shorten conversation history based on:
 
--- Number of turns (e.g., keep the last 5 exchanges).
+  - Number of turns (e.g., keep the last 5 exchanges).
 
--- Character/word length.
+  - Character/word length.
 
 - Structured JSON Extraction: Uses a predefined JSON schema to extract user details (name, email, phone, etc.) from natural language.
 
