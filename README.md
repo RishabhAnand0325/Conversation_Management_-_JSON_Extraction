@@ -25,3 +25,71 @@ The script is built to perform two main tasks:
 - Structured JSON Extraction: Uses a predefined JSON schema to extract user details (name, email, phone, etc.) from natural language.
 
 - Function Calling with Groq: Leverages the tools and tool_choice parameters to force the model to return structured, validated data
+
+# Technologies Used
+
+- Python 3
+
+- Groq API for high-speed LLM inference.
+
+- OpenAI Python SDK as the client interface for the Groq API.
+
+- Google Colab as the development and execution environment.
+
+# Setup and Usage
+
+Follow these steps to run the project in your own Google Colab environment.
+
+**1.Clone the Repository (Optional)**
+```
+git clone https://github.com/your-username/your-repository-name.git
+```
+
+**2.Open in Google Colab**
+
+- Go to Google Colab.
+
+- Click on File -> Upload notebook... and select the .ipynb file from this repository.
+
+**3.API Key Configuration**
+
+- You will need a Groq API key to run this notebook. You can get one for free from the Groq Console.
+
+- Important: The notebook will prompt you to enter your API key when you run the setup cell. For better security, it is recommended to use Colab Secrets (Insert -> Add code snippet -> Secrets).
+
+**4.Install Dependencies**
+
+The first code cell in the notebook contains the necessary commands to install the groq and openai libraries. Simply run this cell to install them.
+```
+!pip install groq openai
+```
+
+**5.Run the Notebook**
+
+- Execute the cells sequentially from top to bottom by pressing Shift + Enter.
+
+- The notebook includes detailed explanations and outputs for each step
+
+# Task Breakdown
+
+**Task 1: Managing Conversation History with Summarization**
+
+This task demonstrates how to maintain a memory-efficient conversation.
+
+- A conversation_history list stores all messages.
+
+- After every k turns (e.g., 3), the entire history is sent to a model with a prompt to summarize it.
+
+- The old history is then replaced by a system message containing the summary, followed by the most recent turn to maintain immediate context.
+
+- Helper functions for truncating by turn count and character length are also demonstrated.
+
+**Task 2: JSON Schema Classification & Information Extraction**
+
+This task showcases Groq's powerful function calling feature for structured data extraction.
+
+- A user_details_schema is defined, which tells the model exactly what information to look for (e.g., name, email, age) and its data type.
+
+- By using the tool_choice parameter, we force the model to use our extract_user_info function.
+
+- The model's output is not a conversational reply, but a JSON object containing the arguments for the function, which can be easily parsed and used.
